@@ -118,3 +118,13 @@ BEGIN
 	RETURN date_fr;
 END;
 $$ LANGUAGE plpgsql;
+
+CREATE OR REPLACE FUNCTION getNomJour(date_input DATE)
+RETURNS TEXT AS $$
+DECLARE
+    nom_jour TEXT;
+BEGIN
+    nom_jour := TO_CHAR(date_input, 'Day');
+    RETURN nom_jour;
+END;
+$$ LANGUAGE plpgsql;
